@@ -187,12 +187,12 @@ func main() {
 								return err
 							}
 
-							args, err := parseIdentifiers(cmd.Args().Slice())
+							identifiers, err := parseIdentifiers(cmd.Args().Slice())
 							if err != nil {
 								return err
 							}
 
-							resp, err := c.ExtractEndOfDay(args, fields)
+							resp, err := c.ExtractEndOfDay(identifiers, fields)
 							if err != nil {
 								return err
 							}
@@ -217,12 +217,12 @@ func main() {
 								return err
 							}
 
-							args, err := parseIdentifiers(cmd.Args().Slice())
+							identifiers, err := parseIdentifiers(cmd.Args().Slice())
 							if err != nil {
 								return err
 							}
 
-							resp, err := c.ExtractComposite(args, fields)
+							resp, err := c.ExtractComposite(identifiers, fields)
 							if err != nil {
 								return err
 							}
@@ -319,12 +319,12 @@ func main() {
 				Name:  "search",
 				Usage: "Search instrument",
 				Action: func(ctx context.Context, cmd *cli.Command) error {
-					args, err := parseIdentifiers(cmd.Args().Slice())
+					identifiers, err := parseIdentifiers(cmd.Args().Slice())
 					if err != nil {
 						return err
 					}
 
-					resp, err := c.Search(args[0])
+					resp, err := c.Search(identifiers[0])
 					if err != nil {
 						return err
 					}
