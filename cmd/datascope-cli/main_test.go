@@ -43,9 +43,9 @@ func TestParseIdentifier(t *testing.T) {
 		},
 		{
 			name:           "multiple colons (joined in source)",
-			arg:            "Type:ID:Source:Extra",
+			arg:            "isin:ID:Source:Extra",
 			wantIdentifier: "ID",
-			wantType:       "Type",
+			wantType:       "Isin",
 			wantSource:     "Source:Extra",
 		},
 		{
