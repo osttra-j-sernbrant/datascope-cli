@@ -375,6 +375,17 @@ func (c *Client) ExtractCorporateActions(identifiers []string, fields []string) 
 	return c.DoExtract(req)
 }
 
+func (c *Client) ExtractTermsAndConditions(identifiers []string, fields []string) (*ExtractionResponse, error) {
+	ids := ParseIdentifiers(identifiers)
+	req := ExtractionRequest{
+		DataType:          "#DataScope.Select.Api.Extractions.ExtractionRequests.TermsAndConditionsExtractionRequest",
+		IdentifierList:    ids,
+		ContentFieldNames: fields,
+	}
+
+	return c.DoExtract(req)
+}
+
 func (c *Client) Search(identifier string) (*SearchResponse, error) {
 	id := ParseIdentifier(identifier)
 	req := SearchRequestBody{

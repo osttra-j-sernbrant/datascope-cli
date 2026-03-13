@@ -313,6 +313,35 @@ func main() {
 							return printExtractionResponse(resp, fields, cmd)
 						},
 					},
+					{
+						Name:    "termsandconditions",
+						Usage:   "Extract terms and conditions",
+						Aliases: []string{"tc"},
+						Flags: []cli.Flag{
+							&cli.StringFlag{
+								Name:  "fields",
+								Value: "DEFAULT",
+								Usage: "Fields to extract (DEFAULT, ALL, or [+]comma-separated list)",
+							},
+						},
+						Action: func(ctx context.Context, cmd *cli.Command) error {
+							fields, err := parseFields(cmd.String("fields"), datascope.TermsAndConditionsFields)
+							if err != nil {
+								return err
+							}
+
+							identifiers, err := parseIdentifiers(cmd.Args().Slice())
+							if err != nil {
+								return err
+							}
+
+							resp, err := c.ExtractTermsAndConditions(identifiers, fields)
+							if err != nil {
+								return err
+							}
+							return printExtractionResponse(resp, fields, cmd)
+						},
+					},
 				},
 			},
 			{

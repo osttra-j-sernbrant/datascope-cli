@@ -208,3 +208,21 @@ var CorporateActionsFields = map[string][]string{
 		"Dividend Rate",
 	},
 }
+
+var TermsAndConditionsFields = map[string][]string{
+	"DEFAULT": {
+		"RIC",
+		"Asset Type",
+		"Currency Code",
+		"CUSIP",
+		"Exchange Code",
+		"ISIN",
+		"Issuer Name",
+		"Security Description",
+		"Ticker",
+		"Series",
+		"Seniority Code",
+		"Seniority Type Code",
+		"Asset Type Description",
+	},
+}
